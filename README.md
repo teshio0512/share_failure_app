@@ -43,9 +43,9 @@
 - belongs_to :tag
 
 ### tagsテーブル
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
+| Column   | Type   | Options                   |
+| -------- | ------ | ------------------------- |
+| tag_name | string | null: false, unique: true |
 
 ### Association
 
