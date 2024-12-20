@@ -1,1 +1,15 @@
-'トップページ'
+<% @articles.each do |article| %>
+  <div class="articleIndex__articleContainer">
+    <div class="articleIndex__themeContainer">
+      研究テーマ：<%= article.theme %>
+    </div>
+    <div class="articleIndex__issueContainer">
+      課題：<%= article.issue %>
+    </div>
+    <div class="articleIndex__measureContainer">
+      手段：<%= article.measure %>
+    </div>
+    <div class="articleIndex__resultContainer">
+      結果：<%= article.result %>
+    </div>
+<% end %>
