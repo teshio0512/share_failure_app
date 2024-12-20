@@ -11,7 +11,11 @@ class ArticleForm
   end
 
   def save
-    article = Article.create(theme: theme, issue: issue, measure: measure, result: result, user_id: user_id, image: image)
+    article = Article.new(theme: theme, issue: issue, measure: measure, result: result, user_id: user_id)
+    if image.present?
+      article.image.attach(image)
+    end
+    article.save
     if tag_name.present?
       tag = Tag.where(tag_name: tag_name).first_or_initialize
       tag.save
