@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.order("id ASC")
+    @articles = Article.order("id DESC")
   end
 
   def new
@@ -15,6 +15,10 @@ class ArticlesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def search
+    @articles = Article.search(params[:keyword])
   end
 
   private

@@ -1,0 +1,29 @@
+.articleIndex__header{
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form{
+  height: 100%;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input{
+  width: 80%;
+  height: 40%;
+}
+
+.search-btn-space{
+  margin: 4px;
+}
+
+.search-btn{
+  padding: 4px;
+  width: 50px;
+}
