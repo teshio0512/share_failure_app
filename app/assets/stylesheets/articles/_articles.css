@@ -1,0 +1,27 @@
+.articleIndex__mainSpace{
+  width: 100vw;
+  height: calc(100vh - 16vh);
+  display: flex;
+}
+
+.articleIndex__sideBar{
+  width: 24vw;
+  height: 100%;
+}
+
+.articleIndex__allArticlesContainer{
+  width: calc(100vw - 16vw);
+  height: 100%;
+  overflow: scroll;
+  background-color: white;
+}
+
+.articleIndex__articleContainer{
+  width: 700px;
+  padding: 8px;
+  margin: 8px auto;
+  border: 1px solid #f59e42;
+  background-color: #f5cd9f;
+  border-radius: 10px;
+  font-size: 16px;
+}

@@ -1,0 +1,33 @@
+<div class="articleIndex__mainSpace">
+  <div class="articleIndex__sideBar">
+  </div>
+  <div class="articleIndex__allArticlesContainer">
+    <% articles.each do |article| %>
+      <div class="articleIndex__articleContainer">
+        <div class="articleIndex__themeContainer">
+          研究テーマ：<%= article.theme %>
+        </div>
+        <div class="articleIndex__issueContainer">
+          課題：<%= article.issue %>
+        </div>
+        <div class="articleIndex__measureContainer">
+          手段：<%= article.measure %>
+        </div>
+        <div class="articleIndex__resultContainer">
+          結果：<%= article.result %>
+        </div>
+        <% if article.tags.first.present? %>
+          <div class="articleIndex__tagContainer">
+            タグ：<%= article.tags.first.tag_name%>
+          </div>
+        <% end %>
+        <div class="articleIndex__postingTime">
+          <%= article.created_at %>
+        </div>
+        <div class="articleIndex__username">
+          <%= article.user.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
