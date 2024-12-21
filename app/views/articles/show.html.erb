@@ -16,7 +16,7 @@
     タグ：<%= @article.tags.first&.tag_name%>
   </div>
   <div class="articleIndex__postingTime">
-    <%= l @article.created_at %>
+    <%= l @article.updated_at %>
   </div>
   <div class="articleIndex__username">
     <%= @article.user.name %>
@@ -28,7 +28,7 @@
 <% if user_signed_in? && @article.user.id == current_user.id %>
 <div class="articleShow__btnContainer">
   <div class="articleShow__editButtonContainer">
-    <%= link_to '編集する', '#', class: "articleEditButton" %>
+    <%= link_to '編集する', edit_article_path(@article), class: "articleEditButton" %>
   </div>
   <div class= "articleShow__deleteButtonContainer">
     <%= link_to '削除する', '#', class: "articleDeleteButton" %>
