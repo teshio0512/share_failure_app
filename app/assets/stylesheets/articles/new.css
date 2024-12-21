@@ -1,0 +1,29 @@
+.themeForm{
+  width: 500px;
+  height: 30px;
+  padding: 8px;
+}
+
+.issueForm{
+  width: 600px;
+  height: 100px;
+  padding: 8px;
+}
+
+.measureForm{
+  width: 600px;
+  height: 100px;
+  padding: 8px;
+}
+
+.resultForm{
+  width: 600px;
+  height: 100px;
+  padding: 8px;
+}
+
+.tagForm{
+  width: 500px;
+  height: 30px;
+  padding: 8px;
+}

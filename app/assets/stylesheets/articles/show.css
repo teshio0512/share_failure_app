@@ -1,0 +1,24 @@
+.articleShow__btnContainer{
+  width: 700px;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 8px auto;
+}
+
+.articleShow__editButtonContainer,
+.articleShow__deleteButtonContainer{
+  width: 200px;
+  height: 50px;
+  padding: 8px;
+  border: 2px solid #f59e42;
+  text-align: center;
+  line-height: 50px;
+}
+
+.articleEditButton,
+.articleDeleteButton{
+  text-decoration: none;
+  font-weight: bold;
+}

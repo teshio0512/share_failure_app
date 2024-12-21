@@ -21,6 +21,10 @@ class ArticlesController < ApplicationController
     @articles = Article.search(params[:keyword])
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   private
   def article_form_params
     params.require(:article_form).permit(:theme, :issue, :measure, :result, :tag_name, :image).merge(user_id: current_user.id)

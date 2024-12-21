@@ -94,6 +94,9 @@ header {
 	background: #d08047;	/*背景色*/
 	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
 }
+.sectionHeader{
+  text-align: center;
+}
 /*コンテンツのh3タグの設定*/
 #contents h3 {
 	clear: both;

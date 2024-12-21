@@ -1,0 +1,37 @@
+<%= render partial: 'header'%>
+<div class="articleIndex__articleContainer">
+  <div class="articleIndex__themeContainer">
+    研究テーマ：<%= @article.theme %>
+  </div>
+  <div class="articleIndex__issueContainer">
+    課題：<%= @article.issue %>
+  </div>
+  <div class="articleIndex__measureContainer">
+    手段：<%= @article.measure %>
+  </div>
+  <div class="articleIndex__resultContainer">
+    結果：<%= @article.result %>
+  </div>
+  <div class="articleIndex__tagContainer">
+    タグ：<%= @article.tags.first&.tag_name%>
+  </div>
+  <div class="articleIndex__postingTime">
+    <%= l @article.created_at %>
+  </div>
+  <div class="articleIndex__username">
+    <%= @article.user.name %>
+  </div>
+  <% if @article.image.attached? %>
+    <%= image_tag @article.image, alt: "添付画像" %>
+  <% end %>
+</div>
+<% if user_signed_in? && @article.user.id == current_user.id %>
+<div class="articleShow__btnContainer">
+  <div class="articleShow__editButtonContainer">
+    <%= link_to '編集する', '#', class: "articleEditButton" %>
+  </div>
+  <div class= "articleShow__deleteButtonContainer">
+    <%= link_to '削除する', '#', class: "articleDeleteButton" %>
+  </div>
+</div>
+<% end %>

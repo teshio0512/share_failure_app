@@ -5,7 +5,7 @@
     <% articles.each do |article| %>
       <div class="articleIndex__articleContainer">
         <div class="articleIndex__themeContainer">
-          研究テーマ：<%= article.theme %>
+          研究テーマ：<%= link_to article.theme, article_path(article) %>
         </div>
         <div class="articleIndex__issueContainer">
           課題：<%= article.issue %>
@@ -16,13 +16,11 @@
         <div class="articleIndex__resultContainer">
           結果：<%= article.result %>
         </div>
-        <% if article.tags.first.present? %>
-          <div class="articleIndex__tagContainer">
-            タグ：<%= article.tags.first.tag_name%>
-          </div>
-        <% end %>
+        <div class="articleIndex__tagContainer">
+          タグ：<%= article.tags.first&.tag_name%>
+        </div>
         <div class="articleIndex__postingTime">
-          <%= article.created_at %>
+          <%= l article.created_at %>
         </div>
         <div class="articleIndex__username">
           <%= article.user.name %>
