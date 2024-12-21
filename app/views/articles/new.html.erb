@@ -1,3 +1,4 @@
+<%= render partial: 'header' %>
 <%= form_with model: @article_form, url: articles_path, local: true do |f| %>
   <%= render 'error_messages', model: @article_form %>
   <%= f.text_field :theme, placeholder: "研究テーマ" %>
