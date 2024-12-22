@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :search, :show]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   def index
     @articles = Article.order("id DESC")
   end
@@ -44,6 +46,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article.destroy
+    redirect_to root_path
+  end
+
   private
   def article_form_params
     params.require(:article_form).permit(:theme, :issue, :measure, :result, :tag_name, :image).merge(user_id: current_user.id)
@@ -51,5 +58,11 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def move_to_index
+    if @article.user.id != current_user.id
+      redirect_to root_path
+    end
   end
 end
