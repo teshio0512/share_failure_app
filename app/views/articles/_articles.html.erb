@@ -8,16 +8,16 @@
           研究テーマ：<%= link_to article.theme, article_path(article) %>
         </div>
         <div class="articleIndex__issueContainer">
-          課題：<%= article.issue %>
+          <span class="articleHeader">課題：</span><%= article.issue %>
         </div>
         <div class="articleIndex__measureContainer">
-          手段：<%= article.measure %>
+          <span class="articleHeader">手段：</span><%= article.measure %>
         </div>
         <div class="articleIndex__resultContainer">
-          結果：<%= article.result %>
+          <span class="articleHeader">結果：</span><%= article.result %>
         </div>
         <div class="articleIndex__tagContainer">
-          タグ：<%= article.tags.first&.tag_name%>
+          # <%= article.tags.first&.tag_name%>
         </div>
         <div class="articleIndex__postingTime">
           <%= l article.updated_at %>
