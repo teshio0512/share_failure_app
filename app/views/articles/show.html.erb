@@ -4,16 +4,16 @@
     研究テーマ：<%= @article.theme %>
   </div>
   <div class="articleIndex__issueContainer">
-    課題：<%= @article.issue %>
+    <span class="articleHeader" >課題</span><br /><%= @article.issue %>
   </div>
   <div class="articleIndex__measureContainer">
-    手段：<%= @article.measure %>
+    <span class="articleHeader">手段</span><br /><%= @article.measure %>
   </div>
   <div class="articleIndex__resultContainer">
-    結果：<%= @article.result %>
+    <span class="articleHeader">結果</span><br /><%= @article.result %>
   </div>
   <div class="articleIndex__tagContainer">
-    タグ：<%= @article.tags.first&.tag_name%>
+    # <%= @article.tags.first&.tag_name%>
   </div>
   <div class="articleIndex__postingTime">
     <%= l @article.updated_at %>
@@ -21,9 +21,11 @@
   <div class="articleIndex__username">
     <%= @article.user.name %>
   </div>
+  <div class="articleShow__imageContainer">
   <% if @article.image.attached? %>
-    <%= image_tag @article.image, alt: "添付画像" %>
+    <%= image_tag @article.image, alt: "添付画像", class: "articleImage" %>
   <% end %>
+  </div>
 </div>
 <% if user_signed_in? && @article.user.id == current_user.id %>
 <div class="articleShow__btnContainer">
