@@ -31,7 +31,7 @@
     <%= link_to '編集する', edit_article_path(@article), class: "articleEditButton" %>
   </div>
   <div class= "articleShow__deleteButtonContainer">
-    <%= link_to '削除する', '#', class: "articleDeleteButton" %>
+    <%= link_to '削除する', article_path(@article), data: {turbo_method: :delete}, class: "articleDeleteButton" %>
   </div>
 </div>
 <% end %>
