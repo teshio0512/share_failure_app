@@ -13,14 +13,27 @@
 <% end %>
 </div>
 
-
 <div id="contents">
-<h2 class="sectionHeader">投稿された記事一覧</h2>
-<%=render partial:'articles', locals: {articles: @articles} %>
 
+<section>
 
+<h2>投稿された記事一覧</h2>
+<% @articles.each do |article| %>
+<div class="list">
+  <div>
+    <%= image_tag article.image if article.image.attached? %>
+  </div>
+  <div>
+    <h4><%= link_to article.theme, article_path(article) %></h4>
+    <p>課題：<%= article.issue %></p>
+    <p><%= l article.updated_at %></p>
+    <p><%= article.user.name %></p>
+    <p># <%= article.tags.first&.tag_name %></p>
+  </div>
 </div>
-<!--/contents-->
+<%end%>
+
+</section>
 
 <footer>
 <small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
@@ -28,7 +41,3 @@
 </footer>
 
 </div>
-<!--/container-->
-
-</body>
-</html>
