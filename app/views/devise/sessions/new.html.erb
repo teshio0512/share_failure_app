@@ -1,29 +1,32 @@
 <%= render partial: 'articles/header' %>
 
-<%= form_with(model: @user, url: user_session_path, local: true) do |f| %>
+<div class="registrationFormContainer">
+  <%= form_with(model: @user, url: user_session_path, html: {class: "registrationForm"}, local: true) do |f| %>
+    <div class="registrationFormGroup">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "registrationFormPart" %>
+    </div>
+    <div class="registrationFormGroup">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "registrationFormPart" %>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+    </div>
+    <div class="registrationFormBtnContainer">
+      <%= f.submit "Log in", class: "registrationFormBtn" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="errorMessagesContainer">
   <% flash.each do |key, value| %>
     <%= content_tag :div, value, class: key %>
   <% end %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+</div>
 
 <%# <%= render "devise/shared/links" %> 
