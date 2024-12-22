@@ -11,8 +11,8 @@
 .articleShow__deleteButtonContainer{
   width: 200px;
   height: 50px;
-  padding: 8px;
   border: 2px solid #f59e42;
+  border-radius: 10px;
   text-align: center;
   line-height: 50px;
 }
