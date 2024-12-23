@@ -1,32 +1,50 @@
 <%= render partial: 'header'%>
-<div class="articleIndex__articleContainer">
-  <div class="articleIndex__themeContainer">
-    研究テーマ：<%= @article.theme %>
-  </div>
-  <div class="articleIndex__issueContainer">
-    <span class="articleHeader" >課題</span><br /><%= @article.issue %>
-  </div>
-  <div class="articleIndex__measureContainer">
-    <span class="articleHeader">手段</span><br /><%= @article.measure %>
-  </div>
-  <div class="articleIndex__resultContainer">
-    <span class="articleHeader">結果</span><br /><%= @article.result %>
-  </div>
-  <div class="articleIndex__tagContainer">
-    # <%= @article.tags.first&.tag_name%>
-  </div>
-  <div class="articleIndex__postingTime">
-    <%= l @article.updated_at %>
-  </div>
-  <div class="articleIndex__username">
-    <%= @article.user.name %>
-  </div>
-  <div class="articleShow__imageContainer">
-  <% if @article.image.attached? %>
-    <%= image_tag @article.image, alt: "添付画像", class: "articleImage" %>
-  <% end %>
-  </div>
-</div>
+
+<div id="container">
+
+<div id="contents">
+
+<div id="main">
+
+<article>
+
+<h2>記事詳細</h2>
+
+<figure id="item-image" class="mb15 c">
+<%= image_tag @article.image, alt: "添付画像", id: "item_image1"%>
+</figure>
+
+<table class="ta1">
+<tr>
+<th>研究テーマ</th>
+<td><%= @article.theme %></td>
+</tr>
+<tr>
+<th>課題</th>
+<td><%= @article.issue %></td>
+</tr>
+<tr>
+<th>手段</th>
+<td><%= @article.measure %></td>
+</tr>
+<tr>
+<th>結果</th>
+<td><%= @article.result %></td>
+</tr>
+<tr>
+<th>タグ</th>
+<td><%= @article.tags.first&.tag_name %></td>
+</tr>
+<tr>
+<th>投稿日または編集日</th>
+<td><%= l @article.updated_at%></td>
+</tr>
+<tr>
+<th>投稿者</th>
+<td><%= @article.user.name %></td>
+</tr>
+</table>
+
 <% if user_signed_in? && @article.user.id == current_user.id %>
 <div class="articleShow__btnContainer">
   <div class="articleShow__editButtonContainer">
@@ -37,3 +55,8 @@
   </div>
 </div>
 <% end %>
+
+</article>
+
+</div>
+<!--/main-->
