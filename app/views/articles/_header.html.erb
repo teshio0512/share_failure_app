@@ -2,7 +2,7 @@
 <ul>
 <li><%= link_to 'Home', root_path %></li>
 <% unless user_signed_in? %>
-  <li><%= link_to 'Registraton', new_user_registration_path %></li>
+  <li><%= link_to 'Registration', new_user_registration_path %></li>
   <li><%= link_to 'Log in ', new_user_session_path %></li>
 <% else %>
   <li><%= link_to 'Post an Article', new_article_path%></li>
