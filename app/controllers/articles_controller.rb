@@ -24,6 +24,11 @@ class ArticlesController < ApplicationController
     @articles = Article.search(params[:keyword])
   end
 
+  def detailsearch
+    @q = Article.ransack(params[:q])
+    @articles = @q.result.order("id DESC")
+  end
+
   def show
   end
 
