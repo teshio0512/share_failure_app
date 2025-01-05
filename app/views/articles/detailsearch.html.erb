@@ -1,0 +1,56 @@
+<%= render partial: 'header' %>
+
+<div class="searchFormContainer">
+  <%= search_form_for @q, url: detailsearch_articles_path, html:{class: "searchForm"} do |f| %>
+    <div class="search-field">
+      <%= f.label :theme_cont, '研究テーマ' %>
+      <br>
+      <%= f.text_field :theme_cont, placeholder: '研究テーマ' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :issue_cont, '課題' %>
+      <br>
+      <%= f.text_field :issue_cont, placeholder: '課題' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :user_name_cont, '投稿者' %>
+      <br>
+      <%= f.text_field :user_name_cont, placeholder: '投稿者' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :tags_tag_name_cont, 'タグ' %>
+      <br>
+      <%= f.text_field :tags_tag_name_cont, placeholder: 'タグ' %>
+    </div>
+    <%= f.submit '検索', class: "searchBtn" %>
+  <% end %>
+</div>
+
+<div id="contents">
+
+<section>
+
+<h2>投稿された記事一覧</h2>
+<% @articles.each do |article| %>
+<div class="list">
+  <div>
+    <%= image_tag article.image if article.image.attached? %>
+  </div>
+  <div>
+    <h4><%= link_to article.theme, article_path(article) %></h4>
+    <p>課題：<%= article.issue %></p>
+    <p><%= l article.updated_at %></p>
+    <p><%= article.user.name %></p>
+    <p class="articleIndex__tagContainer"># <%= article.tags.first&.tag_name %></p>
+  </div>
+</div>
+<%end%>
+
+</section>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
+<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+</div>
