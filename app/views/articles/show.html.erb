@@ -11,7 +11,7 @@
 <h2>記事詳細</h2>
 
 <figure id="item-image" class="mb15 c">
-<%= image_tag @article.image, alt: "添付画像", id: "item_image1"%>
+<%= image_tag @article.image, alt: "添付画像", id: "item_image1" if @article.image.attached? %>
 </figure>
 
 <table class="ta1">
