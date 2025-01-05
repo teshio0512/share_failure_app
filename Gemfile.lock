@@ -213,6 +213,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.2.1)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.9.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.3)
@@ -307,6 +311,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.0)
+  ransack
   rspec-rails (~> 4.0.0)
   selenium-webdriver
   sprockets-rails
