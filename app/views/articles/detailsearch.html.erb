@@ -41,7 +41,11 @@
     <p>課題：<%= article.issue %></p>
     <p><%= l article.updated_at %></p>
     <p><%= article.user.name %></p>
-    <p class="articleIndex__tagContainer"># <%= article.tags.first&.tag_name %></p>
+    <p class="articleIndex__tagContainer">
+      <% article.tags&.each do |tag| %>
+        # <%= tag.tag_name %>
+      <% end %>
+    </p>  
   </div>
 </div>
 <%end%>

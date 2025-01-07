@@ -33,7 +33,11 @@
 </tr>
 <tr>
 <th>タグ</th>
-<td><%= @article.tags.first&.tag_name %></td>
+<td>
+  <% @article.tags.each do |tag| %>
+    # <%= tag.tag_name %>
+  <% end %>
+</td>
 </tr>
 <tr>
 <th>投稿日または編集日</th>
