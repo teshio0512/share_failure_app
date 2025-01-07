@@ -17,18 +17,27 @@ class ArticleForm
     end
     article.save
     if tag_name.present?
-      tag = Tag.where(tag_name: tag_name).first_or_initialize
-      tag.save
-      ArticleTag.create(article_id: article.id, tag_id: tag.id)
+      input_tags = tag_name.squish.split(' ')
+      input_tags.each do |input_tag|
+        tag_name = input_tag
+        tag = Tag.where(tag_name: tag_name).first_or_initialize
+        tag.save
+        ArticleTag.create(article_id: article.id, tag_id: tag.id)
+      end
     end
   end
 
   def update(params, article)
     article.article_tags.destroy_all
-    tag_name = params.delete(:tag_name)
-    tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
-    tag.save if tag_name.present?
-    article.update(params)
-    ArticleTag.create(article_id: article.id, tag_id: tag.id) if tag_name.present?
+    input_tags = params.delete(:tag_name).squish.split(' ')
+    if input_tags.present?
+      input_tags.each do |input_tag|
+        tag_name = input_tag
+        tag = Tag.where(tag_name: tag_name).first_or_initialize
+        tag.save
+        article.update(params)
+        ArticleTag.create(article_id: article.id, tag_id: tag.id)
+      end
+    end
   end
 end
