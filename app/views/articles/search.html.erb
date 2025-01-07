@@ -1,9 +1,10 @@
 <%= render partial: 'header' %>
 <div class="articleIndex__header">
 <%= form_with(url: search_articles_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "記事を検索する", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: "課題で記事を検索する", class: "search-input" %>
   <div class="search-btn-space">
     <%= form.submit "検索", class: "search-btn" %>
+    <%= link_to '詳細検索ページ', detailsearch_articles_path %>
   </div>
 </div>
 <% end %>
@@ -20,7 +21,11 @@
     <p>課題：<%= article.issue %></p>
     <p><%= l article.updated_at %></p>
     <p><%= article.user.name %></p>
-    <p class="articleIndex__tagContainer"># <%= article.tags.first&.tag_name %></p>
+    <p class="articleIndex__tagContainer">
+      <% article.tags&.each do |tag| %>
+        # <%= tag.tag_name %>
+      <% end %>
+    </p>
   </div>
 </div>
 <%end%>
