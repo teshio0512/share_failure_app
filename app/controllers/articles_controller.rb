@@ -35,7 +35,13 @@ class ArticlesController < ApplicationController
   def edit
     article_attributes = @article.attributes
     @article_form = ArticleForm.new(article_attributes)
-    @article_form.tag_name = @article.tags.first&.tag_name
+    if @article.tags.present?
+      tag_names = []
+      @article.tags.each do |tag|
+        tag_names << tag.tag_name
+      end
+      @article_form.tag_name = tag_names.join(' ')
+    end
   end
 
   def update
